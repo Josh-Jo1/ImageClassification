@@ -20,7 +20,8 @@ pip install numpy matplotlib tensorflow scikit-learn
 
 ## Enhancing Model
 
-References: [Link](https://medium.com/@dipti.rohan.pawar/improving-performance-of-convolutional-neural-network-2ecfe0207de7)
+References: [Link](https://medium.com/@dipti.rohan.pawar/improving-performance-of-convolutional-neural-network-2ecfe0207de7), [Link](https://medium.com/mlearning-ai/7-best-techniques-to-improve-the-accuracy-of-cnn-w-o-overfitting-6db06467182f)
+
 
 ### Starting Model Analysis
 
@@ -85,3 +86,22 @@ Instead changed first Dense layer back to 64 units:
 - Test  -> loss: 0.7882 - accuracy: 0.7309
 
 Based on above observations, first Dense layer was set to 128 units.
+
+### Batch Normalization Analysis
+
+What is batch normalization?
+[Link](https://towardsdatascience.com/batch-normalization-in-3-levels-of-understanding-14c2da90a338)
+
+How to use batch normalization?
+[Link](https://www.youtube.com/watch?v=yXOMHOpbon8)
+- After all activation functions:
+    - Train -> loss: 0.5333 - accuracy: 0.8158
+    - Test  -> loss: 0.7948 - accuracy: 0.7288
+- After all activation functions and pooling:
+    - Train -> loss: 0.5165 - accuracy: 0.8216
+    - Test  -> loss: 0.8295 - accuracy: 0.7170
+- Before all activation functions:
+    - Train -> loss: 0.4913 - accuracy: 0.8271
+    - Test  -> loss: 0.7193 - accuracy: 0.7622
+
+Based on above observations, decided to keep batch normalization layers before all activation functions only (that is, not after pooling).
