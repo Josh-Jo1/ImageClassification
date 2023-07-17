@@ -105,3 +105,7 @@ How to use batch normalization?
     - Test  -> loss: 0.7193 - accuracy: 0.7622
 
 Based on above observations, decided to keep batch normalization layers before all activation functions only (that is, not after pooling).
+
+Note: Realized after this analysis that change from [Deeper Network Analysis 2](#deeper-network-analysis-2) was not yet made:
+- Train -> loss: 0.4550 - accuracy: 0.8414
+- Test  -> loss: 0.6798 - accuracy: 0.7676
