@@ -109,3 +109,19 @@ Based on above observations, decided to keep batch normalization layers before a
 Note: Realized after this analysis that change from [Deeper Network Analysis 2](#deeper-network-analysis-2) was not yet made:
 - Train -> loss: 0.4550 - accuracy: 0.8414
 - Test  -> loss: 0.6798 - accuracy: 0.7676
+
+### Dropout Analysis
+
+How to use dropout in tensorflow?
+[Link](https://saturncloud.io/blog/how-to-properly-use-dropout-in-tensorflow-a-guide-for-data-scientists/)
+- Before each batch normalization with rate=0.2:
+    - Train -> loss: 0.6453 - accuracy: 0.7763
+    - Test  -> loss: 1.1098 - accuracy: 0.6026
+- After flatten layer with rate=0.2:
+    - Train -> loss: 0.5786 - accuracy: 0.8001
+    - Test  -> loss: 0.7426 - accuracy: 0.7512
+- After each activation function with rate=0.2:
+    - Train -> loss: 0.6349 - accuracy: 0.7785
+    - Test  -> loss: 0.9254 - accuracy: 0.6802
+
+These observations seem to confirm the tips provided in the resource, which warns from using dropout and batch normalization together. For these reasons, dropout layers were not added to the model.
