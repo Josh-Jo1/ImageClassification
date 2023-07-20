@@ -1,5 +1,11 @@
 # Image Classification
 
+I took on this project after Cats Vs. Dogs to further explore the power of Convolutional Neural Networks. After following the tutorial under [Training Model](#training-model), I gained a basic understanding of the structure necessary to predict objects from the CIFAR-10 dataset, where my model achieved 78% training accuracy and 70% testing accuracy. I then went on to enhance the model based on more research, and my final model achieved **84% training accuracy and 78% testing accuracy**.
+
+The details below are the steps I followed and notes I took throughout this project.
+
+<br/>
+
 ## Background Understanding
 
 [Tutorial Link](https://www.youtube.com/watch?v=zfiSAzpy9NM)
@@ -21,7 +27,6 @@ pip install numpy matplotlib tensorflow scikit-learn
 ## Enhancing Model
 
 References: [Link](https://medium.com/@dipti.rohan.pawar/improving-performance-of-convolutional-neural-network-2ecfe0207de7), [Link](https://medium.com/mlearning-ai/7-best-techniques-to-improve-the-accuracy-of-cnn-w-o-overfitting-6db06467182f)
-
 
 ### Starting Model Analysis
 
@@ -125,3 +130,16 @@ How to use dropout in tensorflow?
     - Test  -> loss: 0.9254 - accuracy: 0.6802
 
 These observations seem to confirm the tips provided in the resource, which warns from using dropout and batch normalization together. For these reasons, dropout layers were not added to the model.
+
+### Tuning Parameters Analysis 2
+
+Increased number of epochs to 12 to achieve 85% accuracy:
+- Train -> loss: 0.4192 - accuracy: 0.8533
+- Test  -> loss: 0.7761 - accuracy: 0.7414
+
+Interestingly, although the training loss and accuracy improved, the testing loss and accuracy performed poorly. This is a sign of overfitting, so the number of epochs was reset to 10.
+
+### Final Model
+
+Train   -> loss: 0.4638 - accuracy: 0.8385\
+Test    -> loss: 0.6747 - accuracy: 0.7770
